@@ -1,0 +1,27 @@
+name: Flake8 Lint
+
+on: [push, pull_request]
+
+jobs:
+  flake8:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install nbconvert flake8
+
+      - name: Convert notebooks to scripts
+        run: |
+          jupyter nbconvert --to script your_notebook.ipynb
+
+      - name: Run flake8
+        run: |
+          flake8 your_notebook.py
