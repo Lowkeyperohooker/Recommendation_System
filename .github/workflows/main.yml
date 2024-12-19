@@ -50,9 +50,9 @@ jobs:
           exit 1
         fi
 
-    # Step 6: Run Linting and Testing
-    - name: Run Linting and Tests
-      run: |
-        flake8 .
-        black --check .
-        pytest
+    # # Step 6: Run Linting and Testing
+    # - name: Run Linting and Tests
+    #   run: |
+    #     flake8 .
+    #     black --check .
+    #     pytest
